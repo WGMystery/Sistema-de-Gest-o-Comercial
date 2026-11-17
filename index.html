@@ -21,7 +21,7 @@
  <div class="side-foot">Sistema de Gestão Comercial<br>Organização para crescer.</div>
 </aside>
 <main class="main">
- <header class="topbar"><div class="crumb"><button class="mobile-menu" id="menuBtn" aria-label="Abrir menu">☰</button><span id="breadcrumb">Visão geral</span></div><div class="profile"><div class="avatar">A</div><span>Administrador</span></div></header>
+ <header class="topbar"><div class="crumb"><button class="mobile-menu" id="menuBtn" aria-label="Abrir menu">☰</button><span id="breadcrumb">Visão geral</span></div><div class="top-actions" role="group" aria-label="Opções de acessibilidade"><span class="a11y-label">Acessibilidade</span><button type="button" class="a11y-btn" id="fontDown" aria-label="Diminuir tamanho do texto" title="Diminuir texto">A−</button><button type="button" class="a11y-btn" id="fontUp" aria-label="Aumentar tamanho do texto" title="Aumentar texto">A+</button><button type="button" class="a11y-btn contrast-btn" id="contrastToggle" aria-pressed="false">Alto contraste</button></div><div class="profile"><div class="avatar">A</div><span>Administrador</span></div></header>
  <section class="content" id="content"></section>
 </main>
 </div>
@@ -64,6 +64,12 @@ if(formType==='sale'){const p=products.find(x=>x.name===d.product),qty=Number(d.
 if(formType==='order'){orders.push({id:Date.now(),...d,value:Number(d.value),date:date()});save('sc_orders',orders)}
 closeModal();render()};
 $('#closeModal').onclick=closeModal;$('#cancelModal').onclick=closeModal;$('#modal').onclick=e=>{if(e.target===$('#modal'))closeModal()};$('#nav').onclick=e=>{const b=e.target.closest('button[data-page]');if(b)go(b.dataset.page)};$('#menuBtn').onclick=()=>$('#sidebar').classList.toggle('open');
+let fontScale=1;
+function applyFontScale(){document.body.style.zoom=fontScale;$('#fontDown').disabled=fontScale<=1;$('#fontUp').disabled=fontScale>=1.25}
+$('#fontDown').onclick=()=>{fontScale=Math.max(1,fontScale-0.1);applyFontScale()};
+$('#fontUp').onclick=()=>{fontScale=Math.min(1.25,fontScale+0.1);applyFontScale()};
+$('#contrastToggle').onclick=()=>{const enabled=document.body.classList.toggle('high-contrast');$('#contrastToggle').setAttribute('aria-pressed',String(enabled));$('#contrastToggle').textContent=enabled?'Contraste normal':'Alto contraste'};
+applyFontScale();
 render();
 </script>
 </body></html>
