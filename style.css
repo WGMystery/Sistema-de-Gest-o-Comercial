@@ -27,3 +27,22 @@ td{vertical-align:middle}
 .pill{white-space:nowrap}
 @media(max-width:680px){.content{padding-top:20px}.panel{padding:16px}.topbar{background:#fff}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat small{line-height:1.35}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* Ferramentas de acessibilidade visual */
+.top-actions{display:flex;align-items:center;gap:7px;margin-left:auto;margin-right:22px}
+.a11y-label{font-size:12px;color:var(--muted);font-weight:700;margin-right:3px}
+.a11y-btn{border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);padding:7px 10px;font-weight:750;font-size:12px;min-height:36px}
+.a11y-btn:hover{border-color:var(--blue);background:var(--blue2)}
+.a11y-btn:disabled{opacity:.45;cursor:not-allowed}
+.contrast-btn{font-size:11px}
+body.high-contrast{--bg:#000;--panel:#000;--ink:#fff;--muted:#fff;--line:#fff;--nav:#000;--blue:#ffeb00;--blue2:#222;--green:#00ff9d;--red:#ff7070;--amber:#ffe600;--shadow:none;color:#fff}
+body.high-contrast .topbar,body.high-contrast .panel,body.high-contrast .stat,body.high-contrast .modal,body.high-contrast .quick button,body.high-contrast .toolbar input,body.high-contrast .toolbar select,body.high-contrast .field input,body.high-contrast .field select,body.high-contrast .a11y-btn{background:#000!important;color:#fff!important;border:1px solid #fff!important;box-shadow:none}
+body.high-contrast .nav button.active,body.high-contrast .nav button:hover{background:#333;color:#ffeb00}
+body.high-contrast .btn.primary{background:#ffeb00;color:#000}
+body.high-contrast a,body.high-contrast .eyebrow,body.high-contrast .stat-icon{color:#ffeb00}
+body.high-contrast th,body.high-contrast td{color:#fff;border-color:#fff}
+body.high-contrast .pill{background:#222;color:#ffeb00;border:1px solid #ffeb00}
+body.high-contrast .side-foot,body.high-contrast .brand small{color:#fff}
+@media(max-width:850px){.top-actions{margin-right:10px;gap:5px}.a11y-label{display:none}}
+@media(max-width:520px){.top-actions{margin-left:auto}.a11y-btn{padding:6px 8px}.contrast-btn{max-width:88px;white-space:normal;line-height:1.1}.profile{display:none}}
