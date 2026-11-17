@@ -1,0 +1,8 @@
+[run]
+branch = False
+source =
+    docs/docs/docs/app/app/app
+
+[report]
+show_missing = True
+skip_covered = False
